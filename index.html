@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كاريزما - عالم الفخامة للجوالات</title>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="overlay"></div>
+
+    <header>
+        <div class="logo-container">
+            <span class="logo-text"><i class="fa-solid fa-bars-staggered" id="menu-toggle"></i> كاريزما</span>
+            <i class="fa-solid fa-gem" style="color: var(--primary-red); font-size: 24px;"></i>
+        </div>
+        <div class="nav-actions">
+            <i class="fa-solid fa-moon menu-icon" id="theme-btn" title="تبديل الوضع"></i>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div style="text-align: left; margin-bottom: 30px;">
+            <i class="fa-solid fa-xmark menu-icon" id="close-sidebar"></i>
+        </div>
+        <ul>
+            <li><a onclick="showMainSection('home-section')"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+            <li><a onclick="showMainSection('about-section')"><i class="fa-solid fa-star"></i> عن كاريزما</a></li>
+            <li><a onclick="showMainSection('contact-section')"><i class="fa-solid fa-headset"></i> تواصل معنا</a></li>
+        </ul>
+    </div>
+
+    <div id="main-content">
+        
+        <!-- Home Section -->
+        <section id="home-section">
+            <div class="hero">
+                <h1>كاريزما.. عنوان الفخامة</h1>
+                <p>نحن لا نبيع مجرد هواتف، نحن نقدم لك تجربة فريدة تجمع بين الأناقة والقوة في عالم الاتصالات</p>
+            </div>
+
+            <div class="filter-container">
+                <h2>مجموعتنا المختارة</h2>
+                <div>
+                    <button class="filter-btn active" onclick="filterData('الكل', this)">All Phone</button>
+                    <button class="filter-btn" onclick="filterData('أيفون', this)">iPhone</button>
+                    <button class="filter-btn" onclick="filterData('سامسونج', this)"> Samsung</button>
+                    <button class="filter-btn" onclick="filterData('ردمي', this)">Redmi</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="products-grid"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-section" class="about-section" style="display:none;">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="ka.jpeg" alt="حول كاريزما">
+                </div>
+                <div class="about-text">
+                    <h2>من نحن؟</h2>
+                    <p>مركز كاريزما هو الوجهة الرائدة في عالم الاتصالات، حيث نجمع بين الخبرة العريقة وأحدث التقنيات. نحن نفخر بكوننا وكلاء معتمدون لأرقى العلامات التجارية العالمية، ونقدم خدماتنا بمعايير فندقية تليق بعملائنا.</p>
+                    <div class="feature-grid">
+                        <div class="feature-item"><i class="fa-solid fa-shield-halved"></i> ضمان معتمد</div>
+                        <div class="feature-item"><i class="fa-solid fa-screwdriver-wrench"></i> صيانة احترافية</div>
+                        <div class="feature-item"><i class="fa-solid fa-award"></i> جودة أصلية</div>
+                        <div class="feature-item"><i class="fa-solid fa-truck-fast"></i> خدمة سريعة</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact-section" class="contact-section" style="display:none;">
+            <h2 style="font-size: 36px; font-weight: 900; color: var(--primary-red);">تواصل مع النخبة</h2>
+            <p style="font-size: 18px; opacity: 0.7;">فريقنا متاح دائماً للإجابة على استفساراتك وخدمتك بأفضل صورة</p>
+            
+            <div class="contact-grid">
+                <a href="tel:776923392" class="contact-card">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <h3>الإدارة العامة</h3>
+                    <p>776923392</p>
+                </a>
+                <a href="https://wa.me/775279493" class="contact-card">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h3>خدمة العملاء</h3>
+                    <p>775279493</p>
+                </a>
+                <div class="contact-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h3>موقعنا</h3>
+                    <p>اليمن - الشحر</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detail Section -->
+        <section id="detail-section" class="detail-page">
+            <div class="detail-container">
+                <div class="detail-image"><img id="detail-img" src="" alt=""></div>
+                <div class="detail-info">
+                    <h2 id="detail-title"></h2>
+                    <hr style="border: none; height: 3px; background: var(--primary-red); width: 80px; margin-right: 0;">
+                    <ul class="specs-list" id="detail-specs"></ul>
+                    <div class="product-price" id="detail-price"></div>
+                    <button class="btn-view" style="background:#444; margin-top:30px; padding: 12px 40px;" onclick="showMainSection('home-section')">العودة للرئيسية</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ملف الـ JavaScript الخارجي -->
+    <script src="script.js"></script>
+</body>
+</html>
